@@ -25,6 +25,12 @@
 <category><pattern>SUP</pattern>
 <template>wassup</template>
 </category>
+<category><pattern>CAR</pattern>
+<template>I drive a new car everyday</template>
+</category>
+<category><pattern>CAR*</pattern>
+<template>I drive a new car everyday</template>
+</category>
 <category><pattern>BILL COSBY</pattern>
 <template>BILL COSBY INNOCENT !!!!!!!!!!!</template>
 </category>

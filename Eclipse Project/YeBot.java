@@ -92,7 +92,7 @@ public class YeBot {
 								if (!negative.contains(output)){
 									System.out.println("test");
 									bk = true;
-									output = conversation.response(session.multisentenceRespond(inputTest));
+									output = conversation.response(session.multisentenceRespond(input));
 									break;
 									
 								}
@@ -103,7 +103,7 @@ public class YeBot {
 							s[j] = temp;
 						}
 						if (!bk && !(noun.length()==0)){
-							output = conversation.response("i dun' like "+noun+"'s");
+							output = conversation.response("i dont know much about "+noun+"'s");
 						}
 						else if (!bk)
 							output = conversation.response(session.multisentenceRespond(input));
@@ -113,11 +113,7 @@ public class YeBot {
 		}
 		System.exit(1); 	//This statement terminates the program	
 		
-			//Do you want to start the conversation over? make sure you get valid input (Done)
-//			ans = conversation.response("Do you want to start our conversation over? (Y/N)"); 
-//			while(ans != null && !ans.toUpperCase().equals("Y") && !ans.toUpperCase().equals("N"))
-//				ans = conversation.response("Invalid input. Do you want to start our conversation over? (Y/N)");
-		//while(ans.toUpperCase().equals("Y"));	//start over if answer is "Y" or "y"
 
 	}
+	
 }

@@ -10,7 +10,7 @@ public class test{
 		String noun = "p";
 		RiWordNet rw = new RiWordNet("C://Program Files (x86)//WordNet//2.1//dict");
 		rw.randomizeResults(false);
-		String[] s = rw.getPos("@#$!#$");
+		String[] s = rw.getPos("cats");
 		for (int i = 0; i<s.length; i++){
 			System.out.println(s[i]);
 			if (s[i].equals("n")){
