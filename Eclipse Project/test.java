@@ -10,7 +10,7 @@ public class test{
 		String noun = "p";
 		RiWordNet rw = new RiWordNet("C://Program Files (x86)//WordNet//2.1//dict");
 		rw.randomizeResults(false);
-		String[] s = rw.getPos("cats");
+		String[] s = rw.getPos("upset");
 		for (int i = 0; i<s.length; i++){
 			System.out.println(s[i]);
 			if (s[i].equals("n")){
@@ -22,6 +22,9 @@ public class test{
 		}
 		if (noun.length()==0)
 			System.out.println("null is null");
+		
+		String[] syn = rw.getAllSynonyms("car","n");
+		System.out.println(Arrays.toString(syn));
 		//			String[] ns = new String[2];
 		//			ns[0] = "one";
 		//			ns[1] = "two";

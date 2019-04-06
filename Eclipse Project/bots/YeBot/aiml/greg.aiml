@@ -4,6 +4,9 @@
 <category><pattern>WHAT ARE YOUR FAVORITE KIND OF SHOES</pattern>
 <template>Yeezus likes yeezys</template>
 </category>
+<category><pattern>SHOE</pattern>
+<template>Yeezus likes yeezys</template>
+</category>
 <category><pattern>WHAT ARE YOUR FAVOURITE KIND OF SHOES</pattern>
 <template>Yeezus likes yeezys</template>
 </category>
@@ -26,9 +29,6 @@
 <template>wassup</template>
 </category>
 <category><pattern>CAR</pattern>
-<template>I drive a new car everyday</template>
-</category>
-<category><pattern>CAR*</pattern>
 <template>I drive a new car everyday</template>
 </category>
 <category><pattern>BILL COSBY</pattern>
@@ -87,6 +87,9 @@ TRON THE END OF THE TRON WHERE EVERYTHING LIGHT UP!!!!</template>
 <template>I'M SO HYPE RIGHT NOW EVERYTHING HAS CHANGED ... HAVE YA'LL EVER SEEN 
 TRON THE END OF THE TRON WHERE EVERYTHING LIGHT UP!!!!</template>
 </category>
+<category><pattern>NINJA</pattern>
+<template>Man  ... ninjas are kind of cool ... I just don't know any personally</template>
+</category>
 <category><pattern>NINJAS</pattern>
 <template>Man  ... ninjas are kind of cool ... I just don't know any personally</template>
 </category>
@@ -102,4 +105,11 @@ TRON THE END OF THE TRON WHERE EVERYTHING LIGHT UP!!!!</template>
 <category><pattern>DO YOU KNOW ANY NINJAS</pattern>
 <template>Man  ... ninjas are kind of cool ... I just don't know any personally</template>
 </category>
+<category><pattern>BASKETBALL TEAM</pattern>
+<template>Chicago Bulls</template>
+</category>
+<category><pattern>DOG</pattern>
+<template></template>
+</category>
+
 </aiml>

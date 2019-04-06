@@ -7,31 +7,36 @@ import rita.*;
  */
 public class YeBot {
 
-	static Conversation conversation;			
+	static Conversation conversation;	
+	public static Bot yebot;
+	public static ArrayList<String> unknownResponse;
+	public static Chat session;
+	public static RiWordNet rw;
 
 	public static void main(String[] args) {
 		//initialize
 		//RiTa is my api for WordNet
 		//WordNet is required to be install in this directory
-		RiWordNet rw = new RiWordNet("C://Program Files (x86)//WordNet//2.1//dict");//directory for wordnet 2.1
+		rw = new RiWordNet("C://Program Files (x86)//WordNet//2.1//dict");//directory for wordnet 2.1
 		rw.randomizeResults(false); //do not randomize rita results
 		
 		String dir = new File(".").getAbsolutePath();
 		System.out.println(dir.substring(0,dir.length()-2));
 		MagicBooleans.trace_mode = false;
-		Bot yebot = new Bot("YeBot",dir.substring(0,dir.length()-2));
+		yebot = new Bot("YeBot",dir.substring(0,dir.length()-2));
 		yebot.writeAIMLFiles();
 		
-		Boolean bk; //break boolean -- if true break out of both loops
+		//Boolean bk; //break boolean -- if true break out of both loops
 		
 		//arraylist of unknown responses
-		ArrayList<String> negative = new ArrayList<String>();
-		negative.add("wish i could help   i dont know what that means");
-		negative.add("you got good vibes   but i dont know what to say to that");
-		negative.add("yo man you gotta slow down   maybe try saying that a different way");
+		unknownResponse = new ArrayList<String>();
+		unknownResponse.add("wish i could help   i dont know what that means");
+		unknownResponse.add("you got good vibes   but i dont know what to say to that");
+		unknownResponse.add("yo man you gotta slow down   maybe try saying that a different way");
+		unknownResponse.add("maan what are you on about");
+		unknownResponse.add("i dont like where this is going   you need to stop   ye dont like");
 		
-		
-		Chat session = new Chat(yebot);
+		session = new Chat(yebot);
 		conversation = new Conversation();
 
 		String input = "test";
@@ -43,7 +48,7 @@ public class YeBot {
 			input = null;
 			input = conversation.recieveInput();
 			//System.out.println(input);
-			bk = false;
+			//bk = false;
 			if (input!=""&&input!=null&&input.length()>1||i==1) {
 				if(input==""||input==null||input.length()<1) {
 					//start conversation
@@ -63,51 +68,8 @@ public class YeBot {
 				}
 				else {
 					
-					//regular response
-					//output = conversation.response(session.multisentenceRespond(input));
-					output = session.multisentenceRespond(input);
-					//System.out.println(output);
-					if (!negative.contains(output)){ //if is a known phrase continue as normal 						
-					output = conversation.response(session.multisentenceRespond(input));
-					}
-					else { //check for synonyms
-						String[] s = input.split(" ");
-						//TODO: get pos tagging to work
-						for (int x = 0; x < s.length; x++){
-							String[] pos = rw.getPos(s[x]);
-							for (int y = 0; y < pos.length; y++){
-								if (pos[y].equals("n"))
-									noun = s[x];
-							}
-						}
-						for (int j = 0; j<s.length; j++){
-							String temp = s[j];
-							String[] syn = rw.getAllSynonyms(s[j],"n");//get all synonyms for word in s at index j sentence
-							for (int k = 0; k<syn.length; k++){ //cycle through list of synonyms and try to find a good response
-								s[j] = syn[k];
-								String inputTest = String.join(" ", s);
-								output = session.multisentenceRespond(inputTest);
-								System.out.println(output);
-								
-								if (!negative.contains(output)){
-									System.out.println("test");
-									bk = true;
-									output = conversation.response(session.multisentenceRespond(input));
-									break;
-									
-								}
-								//System.out.println(inputTest);
-							}
-							if(bk)
-								break;
-							s[j] = temp;
-						}
-						if (!bk && !(noun.length()==0)){
-							output = conversation.response("i dont know much about "+noun+"'s");
-						}
-						else if (!bk)
-							output = conversation.response(session.multisentenceRespond(input));
-					}
+					String response = getResponse(input);
+					output = conversation.response(response);
 				}
 			}	
 		}
@@ -115,5 +77,78 @@ public class YeBot {
 		
 
 	}
-	
+	/* if we get to a point where yebot does not understand the user's input we should
+	 * check for synonyms to see if yebot understand a different version of the input
+	 * and if that check is successful then we should output yebots response to that
+	 * otherwise if we still dont get a response we find a noun in the statement to see
+	 * if yebot has a response for that noun and if not yebot will use that nouns to make
+	 * the chat seem more fluid by saying "i dont know anything about "+noun"'s" 
+	 * */
+	public static String getResponse (String input){
+		String response = session.multisentenceRespond(input);
+		
+		if (!unknownResponse.contains(response)){ //if is a known phrase continue as normal 						
+			response = session.multisentenceRespond(input);
+			}
+		else { //check for synonyms
+			String[] words = input.split(" ");
+			outerloop:
+			for (int i = 0; i<words.length; i++){ //loop through each word and check for synonyms that match
+				String temp = words[i];
+				String[] synonyms = rw.getAllSynonyms(words[i],"n");
+				for (int j = 0; j<synonyms.length; j++){
+					words[i] = synonyms[j];
+					String test = String.join(" ", words);
+					System.out.println(test);
+					response = session.multisentenceRespond(test);
+					if (!unknownResponse.contains(response)){
+						//if we find an a good response break the loops
+						break outerloop;
+					}
+				}
+				words[i]=temp;
+			}
+			//we find a noun then check that nouns synonyms to see if we have an appropriate
+			//response for that noun
+			if(unknownResponse.contains(response)){
+				words = input.split(" ");
+				outerloop:
+				for (int i = 0; i<words.length; i++){
+					String[] pos = rw.getPos(words[i]);
+					for (int j = 0; j<pos.length; j++){
+						if (pos[j].equals("n")){
+							String[] synonyms = rw.getAllSynonyms(words[i], "n");
+							response = session.multisentenceRespond(words[i]);
+							if (!unknownResponse.contains(response)){
+								break outerloop;
+							}
+							for (int k = 0; k<synonyms.length; k++){
+								response = session.multisentenceRespond(synonyms[k]);
+								if (!unknownResponse.contains(response)){
+									break outerloop;
+								}
+							}
+						}
+							
+					}
+				}
+			}
+			//if we still get an unknown response after checking for synonyms
+			//then we should look for a noun in the statement and have yebot tell the user
+			// they don't know anything about that to make the conversation more fluid
+			if(unknownResponse.contains(response)){
+				words = input.split(" ");
+				for (int i = 0; i<words.length; i++){
+					String[] pos = rw.getPos(words[i]);
+					for (int j = 0; j<pos.length; j++){
+						if (pos[j].equals("n"))
+							response = "i dont know about anything about "+words[i]+"s ";
+					}
+				}
+			}
+		}
+		System.out.println(response);
+		return response;
+		
+	}
 }
