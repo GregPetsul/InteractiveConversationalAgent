@@ -110,13 +110,17 @@ public class YeBot {
 			}
 			//we find a noun then check that nouns synonyms to see if we have an appropriate
 			//response for that noun
-			if(unknownResponse.contains(response)){
+			if(unknownResponse.contains(response)||response.contains("you got good vibes")||response.contains("wish i could help")||
+					response.contains("maan what are you on about")||response.contains("ye dont like")){
 				words = input.split(" ");
 				outerloop:
 				for (int i = 0; i<words.length; i++){
 					String[] pos = rw.getPos(words[i]);
-					for (int j = 0; j<pos.length; j++){
-						if (pos[j].equals("n")){
+					String temp = String.join("",pos);
+					//for (int j = 0; j<pos.length; j++){
+						//if (pos[j].equals("n")){
+					if (temp.equals("nv")||temp.equals("n")||temp.equals("nr")){
+						System.out.println("found one");
 							String[] synonyms = rw.getAllSynonyms(words[i], "n");
 							response = session.multisentenceRespond(words[i]);
 							if (!unknownResponse.contains(response)){
@@ -130,20 +134,24 @@ public class YeBot {
 							}
 						}
 							
-					}
+					//}
 				}
 			}
 			//if we still get an unknown response after checking for synonyms
 			//then we should look for a noun in the statement and have yebot tell the user
 			// they don't know anything about that to make the conversation more fluid
-			if(unknownResponse.contains(response)){
+			if(unknownResponse.contains(response)||response.contains("you got good vibes")||response.contains("wish i could help")||
+					response.contains("maan what are you on about")||response.contains("ye dont like")){
+				System.out.println("found a noun!");
 				words = input.split(" ");
 				for (int i = 0; i<words.length; i++){
 					String[] pos = rw.getPos(words[i]);
-					for (int j = 0; j<pos.length; j++){
-						if (pos[j].equals("n"))
+					String temp = String.join("",pos);
+					//for (int j = 0; j<pos.length; j++){
+						//if (pos[j].equals("n"))
+					if (temp.equals("nv")||temp.equals("na")||temp.equals("n")||temp.equals("nr"))
 							response = "i dont know about anything about "+words[i]+"s ";
-					}
+					//}
 				}
 			}
 		}

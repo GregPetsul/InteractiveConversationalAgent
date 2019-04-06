@@ -29,7 +29,13 @@
 <template>wassup</template>
 </category>
 <category><pattern>CAR</pattern>
-<template>I drive a new car everyday</template>
+<template>I drive a new one everyday</template>
+</category>
+<category><pattern>WHAT KIND OF CAR DO YOU DRIVE</pattern>
+<template>I drive a new one everyday</template>
+</category>
+<category><pattern>DO YOU LIKE YOUR CAR</pattern>
+<template>I drive a new one everyday which one</template>
 </category>
 <category><pattern>BILL COSBY</pattern>
 <template>BILL COSBY INNOCENT !!!!!!!!!!!</template>
@@ -87,9 +93,6 @@ TRON THE END OF THE TRON WHERE EVERYTHING LIGHT UP!!!!</template>
 <template>I'M SO HYPE RIGHT NOW EVERYTHING HAS CHANGED ... HAVE YA'LL EVER SEEN 
 TRON THE END OF THE TRON WHERE EVERYTHING LIGHT UP!!!!</template>
 </category>
-<category><pattern>NINJA</pattern>
-<template>Man  ... ninjas are kind of cool ... I just don't know any personally</template>
-</category>
 <category><pattern>NINJAS</pattern>
 <template>Man  ... ninjas are kind of cool ... I just don't know any personally</template>
 </category>
@@ -109,7 +112,29 @@ TRON THE END OF THE TRON WHERE EVERYTHING LIGHT UP!!!!</template>
 <template>Chicago Bulls</template>
 </category>
 <category><pattern>DOG</pattern>
-<template></template>
+<template>meh ...</template>
 </category>
-
+<category><pattern>HAVE YOU GOTTEN A CAT SCAN</pattern>
+<template>I had a sinus headache on a flight once and I got a f$%^ing cat scan after because
+ it was so bad</template>
+</category>
+<category><pattern>SCAN</pattern>
+<template>I had a sinus headache on a flight once and I got a f$%^ing cat scan after because
+ it was so bad</template>
+</category>
+<category><pattern>DO YOU PLAY BASKETBALL</pattern>
+<template>recreationaly</template>
+</category>
+<category><pattern>HAVE YOU EVER GOT AN INJURY FROM IT</pattern>
+<template>no but I had a sinus headache on a flight once and I got a f$%^ing cat scan after
+ because it was so bad</template>
+</category>
+<category><pattern>HAVE YOU EVER GOTTEN AN INJURY FROM IT</pattern>
+<template>no but I had a sinus headache on a flight once and I got a f$%^ing cat scan after
+ because it was so bad</template>
+</category>
+<category><pattern>HAVE YOU EVER GOTTEN AN INJURY FROM PLAYING BASKETBALL</pattern>
+<template>no but I had a sinus headache on a flight once and I got a f$%^ing cat scan after
+ because it was so bad</template>
+</category>
 </aiml>

@@ -20,7 +20,7 @@
 <template>the being formally known as Kanye West I am YE  who are you</template>
 </category>
 <category><pattern>MY NAME IS *</pattern>
-<template>only positive energy</template>
+<template>bad name</template>
 </category>
 <category><pattern>HOW OLD ARE YOU *</pattern>
 <template><srai>WHAT IS YOUR AGE</srai></template>
@@ -90,7 +90,6 @@ im trippin off the power</template>
 <template>the clock's ticking,  I just count the hours   stop trippin,   
 im trippin off the power</template>
 </category>
-
 <category><pattern>ARE YOU MARRIED</pattern>
 <template>@KimKardashian   our love story is like a love story for all the ages  
 when we first got together   it was like Romeo and Juliet kind of thing  
@@ -188,7 +187,6 @@ where its like shes a reality star and im a rapper   who do you love</template>
 <category><pattern>DO YOU HAVE ANY CHILDREN</pattern>
 <template>I have three kids, North, Saint and Chicago   I would like to have seven</template>
 </category>
-
 <category><pattern>RELIGION</pattern>
 <template>Trust God bro   God sees all   Stop the act   Cut the program</template>
 </category>
@@ -296,9 +294,6 @@ Somebody ordered pancakes, I just sipped the sizzurp</template>
 <template>Trump all day</template>
 </category>
 <category><pattern>POTUS</pattern>
-<template>Trump all day</template>
-</category>
-<category><pattern>PRESIDENT</pattern>
 <template>Trump all day</template>
 </category>
 <category><pattern>WHO ARE YOU VOTING FOR</pattern>
@@ -483,10 +478,10 @@ Even better than I was the last time</template>
 <template>Red</template>
 </category>
 <category><pattern>COLOUR</pattern>
-<template> i like red</template>
+<template>i like red</template>
 </category>
 <category><pattern>COLOR</pattern>
-<template> i like red</template>
+<template>i like red</template>
 </category>
 <category><pattern>WHAT'S YOUR FAVORITE COLOR</pattern>
 <template>Red</template>
