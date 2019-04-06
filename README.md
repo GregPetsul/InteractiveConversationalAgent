@@ -20,7 +20,15 @@ The Interactive Conversational Agent allows an individual to hold a conversation
 
 * [Java](https://www.java.com/) - Programming language 
 * [AIML](https://www.tutorialspoint.com/aiml/) - AIML dialogue
+* [RiTa](https://rednoise.org/rita/) - RiTa API for WordNet
 
+## Features implemented in A3
+
+* Chat Bot GUI
+* Added extra topics and dialogues for yebot
+* Added a few more reasonable responses for unknown inputs (including a dynamic one that includes a relavent word from the user input)
+* Added Synonym recognition for user inputs
+* Added POS Tagging for better responses
 
 
 
