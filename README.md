@@ -1,4 +1,4 @@
-# InteractiveConversationalAgent
+# InteractiveConversationalAgent By Gregory Petsul
 **Purpose:**
 The Interactive Conversational Agent allows an individual to hold a conversation of at least 30 turns. The agent is a celebrity and the user can be anyone. The celebrity chosen is Kanye West. The conversation will be primarily question/answer based, but there may be certain specific responses for some non-question statements. The responses from the chat agent is a collection of tweets and song lyrics by Kanye West himself.
 
