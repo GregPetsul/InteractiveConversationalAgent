@@ -26,7 +26,7 @@ The Interactive Conversational Agent allows an individual to hold a conversation
 
 * Chat Bot GUI
 * Added extra topics and dialogues for yebot
-* Added a few more reasonable responses for unknown inputs (including a dynamic one that includes a relavent word from the user input)
+* Added a few more reasonable responses for unknown inputs (including a dynamic one that includes a relevent word from the user input)
 * Added Synonym recognition for user inputs
 * Added POS Tagging for better responses
 
